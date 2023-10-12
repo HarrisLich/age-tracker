@@ -23,14 +23,14 @@ function App() {
   }
 
   return (
-    <div className="w-full flex flex-row items-center justify-center" style={{height: "calc(100vh)"}}>
+    <div className="w-full flex flex-row items-center justify-center font-[MyFont]" style={{height: "calc(100vh)"}}>
       {diffInYears 
       ? 
       <div className="flex flex-row">
-        <div className="text-6xl">
+        <div className="md:text-9xl text-6xl">
           {diffInYears.toString().substring(0,2)}
         </div>
-        <div className="mt-8 text-lg">
+        <div className="md:mt-16 md:text-4xl text-3xl mt-5">
           {diffInYears.toString().substring(2, diffInYears.toString().length - 1)}
         </div>
       </div> 
