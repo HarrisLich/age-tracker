@@ -19,7 +19,7 @@ function App() {
       let timeDiffInYears = timeDiff / (1000 * 3600 * 24 * 365)
       if(diffInYears !== timeDiffInYears) setDiffInYears(timeDiffInYears)
       console.log(timeDiffInYears)
-    }, 440)
+    }, 50)
   }
 
   return (
