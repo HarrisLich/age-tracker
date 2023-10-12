@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import {useEffect} from 'react'
 import React from 'react'
 
 const DOB = new Date(2004, 1, 18)
