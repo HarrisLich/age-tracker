@@ -1,23 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import {useEffect} from 'react'
+import React from 'react'
+
+const DOB = new Date(2004, 1, 18)
 
 function App() {
+
+  const [diffInYears, setDiffInYears] = React.useState(null)
+
+  window.onload = () => {
+    let td = new Date()
+    let timeDiff = td.getTime() - DOB.getTime()
+    let timeDiffInYears = timeDiff / (1000 * 3600 * 24 * 365)
+    setDiffInYears(timeDiffInYears)
+
+    setInterval(()=>{
+      let td = new Date()
+      let timeDiff = td.getTime() - DOB.getTime()
+      let timeDiffInYears = timeDiff / (1000 * 3600 * 24 * 365)
+      if(diffInYears !== timeDiffInYears) setDiffInYears(timeDiffInYears)
+      console.log(timeDiffInYears)
+    }, 440)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full flex flex-row items-center justify-center" style={{height: "calc(100vh)"}}>
+      {diffInYears 
+      ? 
+      <div className="flex flex-row">
+        <div className="text-6xl">
+          {diffInYears.toString().substring(0,2)}
+        </div>
+        <div className="mt-8 text-lg">
+          {diffInYears.toString().substring(2, diffInYears.toString().length - 1)}
+        </div>
+      </div> 
+      : "Loading..."}
     </div>
   );
 }
